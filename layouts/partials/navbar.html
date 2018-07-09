@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a href="/" class="navbar-brand">{{ .Site.Title }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end"  id="navbarMenu">
+        <ul class="navbar-nav">
+            {{ range .Site.Menus.main }}
+            <li class="nav-item active">
+                <a class="nav-link"  href="{{ .URL | relURL }}" style="display:block; text-align:right">{{ .Name }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+</nav>

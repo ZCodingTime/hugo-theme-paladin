@@ -3,11 +3,8 @@
 <div class="wrap">
     {{ partial "navbar.html" .  }}
     <main class="paladin-container">
-        {{ if eq .Params.Type "about"}}
-            {{ partial "about.html" . }}
-        {{ else }}
-            {{ partial "post.html" . }}
-        {{ end }}
+
+        {{ partial "about.html" . }}
         
         {{ if eq .Params.vertical true }}
             {{ partial "footer.html" . }}

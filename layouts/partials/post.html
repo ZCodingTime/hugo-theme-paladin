@@ -1,0 +1,23 @@
+<div class="post">
+    <article class="post-block">
+        <h1 class="post-title">{{ .Title }}</h1>
+        <div class="post-info">{{ .Date.Format (.Site.Params.dateFormatToUse | default "Jan 2 2006") }}</div>
+        <div class="post-entry">{{ .Content }}</div>
+    </article>
+</div>
+
+<div class="post-nav">    
+    {{ if .PrevInSection }}
+    <div class="prev-wrap col-md-6 col-xs-6">
+        <i class="iconfont icon-jiantou_shangyiye"></i>
+        <a href="{{ .PrevInSection.Permalink }}" class="prev-post font-weight-bold">{{ .PrevInSection.Title }}</a>
+    </div>
+    {{ end }}
+
+    {{ if .NextInSection }}
+    <div class="next-wrap col-md-6 col-xs-6">
+        <a href="{{ .NextInSection.Permalink }}" class="prev-post font-weight-bold">{{ .NextInSection.Title }}</a>
+        <i class="iconfont icon-jiantou_xiayiye"></i>
+    </div>
+    {{ end }}
+</div>

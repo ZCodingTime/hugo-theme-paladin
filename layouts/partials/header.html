@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="HandheldFriendly" content="True">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#e0e0e0">
+
+        <link rel="icon" href="/media/blog.png">
+        
+        {{ partial "head_custom.html" . }} <!--highlight code-->
+
+        <link href="/css/bootstrap.min.css", rel="stylesheet">
+        
+        <meta name="referrer" content="no-referrer">
+        {{ if .Site.Params.description }}
+            <meta name="description" content="{{ .Site.Params.description }}">
+        {{ end }}
+        {{ if .Site.Params.keywords }}
+            <meta name="keywords" content="{{ .Site.Params.keywords }}">
+        {{ end }}
+        {{ if .Site.Author.name }}
+            <meta name="author" content="{{ .Site.Author.name }}">
+        {{ end }}
+        {{ if not .Site.Params.disableWebFonts }}
+            <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
+        {{ end }}
+
+        {{ if eq .Params.vertical true }}
+            <link href="/css/main-vertical.css", rel="stylesheet">
+        {{ else }}
+            <link href="/css/main.css", rel="stylesheet">
+        {{ end }}
+
+        {{ .Hugo.Generator }} <!--hugo version-->
+
+    </head>
+    <body>

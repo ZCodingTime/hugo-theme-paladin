@@ -1,0 +1,33 @@
+<footer>
+    {{ partial "foot_custom.html" . }}
+    <div class="copyright">
+        <span class="power-by">
+            Power by <a class="hugo-link" href="https://gohugo.io">Hugo</a>
+        </span>
+        <span class="division">&hArr;</span>
+        <span class="theme-info">
+            Theme - <a class="theme-link" href="https://github.com/ZCodingTime/hugo-theme-paladin">Paladin</a>
+        </span>
+        <span class="division">&reg;</span>
+        <span class="author-name">&Dfr;&Yscr;&hearts;&Qscr;&lagran;</span>
+        <span class="copyright-year">
+            {{ $current := now.Format "2006" }}
+            &copy;
+            {{ if ne .Site.Params.since $current }}
+                {{ .Site.Params.since }} -
+            {{ end }}
+            {{ $current }}
+            {{ if or .Site.Copyright .Site.Author.name }}
+            <span class="author">
+                {{ if .Site.Copyright }}
+                    {{ .Site.Copyright | safeHTML }}
+                {{ else }}
+                    {{ .Site.Author.name | safeHTML }}
+                {{ end }}
+            </span>
+            {{ end }}
+        </span>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{{ $page := $.Paginator }}
+<div class="pagination">
+    {{ with $page.Prev }}
+    <a class="prev col-md-11 col-xs-6" href="{{ .URL }}">
+        <i class="iconfont icon-jiantou_yemian_xiangzuo"></i>
+        <span class="prev-text">{{ i18n "prev" }}</span>
+    </a>
+    {{ end }}
+
+    {{ with $page.Next }}
+    <a class="next col-md-2 col-xs-6" href="{{ .URL }}">
+        <span class="next-text">{{ i18n "next" }}</span>
+        <i class="iconfont icon-jiantou_yemian_xiangyou"></i>
+    </a>
+    {{ end }}
+</div>

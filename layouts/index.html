@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+<div class="wrap" >
+    {{ partial "navbar.html" . }}
+    <main class="paladin-container">
+        <div class="articles">
+            {{ $paginator := .Paginate (where .Pages "Type" "post") }}
+            {{ range $paginator.Pages }}
+                <article class="post-block">
+                    <h2 class="post-title">
+                        <a href="{{ .Permalink }}" class="post-link">{{ .Title }}</a>
+                    </h2>
+                    <div class="post-info">{{ .Date.Format (.Site.Params.dateFormatToUse | default "Jan 2 2006") }}</div>
+                    <div class="post-entry">{{ .Summary }}</div>
+                    <div class="post-meta">
+                        <a href="{{ .Permalink }}" class="article-more">CONTINUE READING</a>
+                    </div>
+                </article>
+            {{ end }}
+        </div>
+        {{ partial "pagination.html" .}}
+    </main>
+</div>
+
+{{ partial "footer.html" . }}
+{{ partial "after_footer.html" .}}
