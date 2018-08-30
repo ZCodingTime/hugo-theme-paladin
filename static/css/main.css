@@ -1074,22 +1074,6 @@ h3.aside-title {
   line-height: 1.1;
 }
 
-.about-me-image {
-  margin-top: 20px;
-  padding-top: 62.5%;
-  background-image: url('/media/aboutme.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.about-me-text {
-  padding: 15px 0 0;
-  font-size: 0.875rem;
-  line-height: 22px;
-  margin-bottom: 0;
-  text-align: center;
-}
-
 .all-tags-box {
   padding-top: 20px;
   text-align: left;
@@ -1262,4 +1246,24 @@ h3.aside-title {
 .fixed-top {
   right:auto;
   left:auto;
+}
+
+/* social links */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* row */
+.row {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* about me */
+.about-me {
+  background-size: contain;
 }

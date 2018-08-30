@@ -13,8 +13,8 @@
 - id: category
   translation: "分類： "
 
-- id: about
-  translation: 關于
+- id: about me
+  translation: 關于我
 
 - id: follow me
   translation: 關註我

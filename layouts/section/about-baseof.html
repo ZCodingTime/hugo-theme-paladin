@@ -2,14 +2,11 @@
 
 <div class="wrap">
     {{ partial "navbar.html" .  }}
-    <main class="paladin-container">
-
-        {{ partial "about.html" . }}
-        
-        {{ if eq .Params.vertical true }}
-            {{ partial "footer.html" . }}
-        {{ end }}
-    </main>
+    {{ partial "about.html" . }}
+    
+    {{ if eq .Params.vertical true }}
+        {{ partial "footer.html" . }}
+    {{ end }}
 </div>
 {{ if ne .Params.vertical true }}
     {{ partial "footer.html" . }}

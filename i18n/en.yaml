@@ -13,8 +13,8 @@
 - id: category
   translation: "Category: "
 
-- id: about
-  translation: About
+- id: about me
+  translation: About Me
 
 - id: follow me
   translation: Follow Me
