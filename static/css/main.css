@@ -1109,30 +1109,6 @@ h3.aside-title {
   opacity: 0.8;
 }
 
-.github-link::after {
-  font-family: ubuntu;
-  content: "\f09b";
-  margin: 10px;
-  color: #000;
-  font-size: 1.125rem;
-}
-
-.twitter-link::after {
-  font-family: ubuntu;
-  content: "\f099";
-  margin: 10px;
-  color: #000;
-  font-size: 1.125rem;
-}
-
-.weibo-link::after {
-  font-family: ubuntu;
-  content: "\f18a";
-  margin: 10px;
-  color: #000;
-  font-size: 1.125rem;
-}
-
 
 /*-----------------------------------------------------------------------------------*/
 
@@ -1140,7 +1116,6 @@ h3.aside-title {
 /*  PAGINATION (PAGE/POST)
 /*-----------------------------------------------------------------------------------*/
 
-.paginator,
 .post-nav {
   width: 80%;
   margin: 0 auto;
@@ -1148,7 +1123,6 @@ h3.aside-title {
   overflow: hidden;
 }
 
-.paginator a,
 .post-nav a {
   font-family: ubuntu,"webfont" !important;
   font-weight: 400;
@@ -1159,12 +1133,6 @@ h3.aside-title {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.paginator a:hover,
-.post-nav a:hover {
-  text-decoration: none;
-  color: #000;
 }
 
 .prev-wrap,
@@ -1194,14 +1162,6 @@ h3.aside-title {
   text-align: right;
   padding-right: 4px;
 }
-
-.disqus-comments {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 50px;
-  overflow: hidden;
-}
-
 
 /*--------------------------------------------------------------------------------*/
 
@@ -1266,4 +1226,46 @@ h3.aside-title {
 /* about me */
 .about-me {
   background-size: contain;
+}
+
+/* pagination */
+.pagination {
+  margin: 2em 0;
+  text-align: center;
+}
+
+.pagination ul {
+  display: inline-block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+}
+
+.pagination ul li{
+	display: inline-block;
+}
+
+.pagination ul li a{
+  background-color: #fff;
+      margin-left: .1em;
+      margin-right: .1em;
+      border: 1px solid #222;
+      color: #222;
+      float: left;
+      line-height: 1.42857143;
+      padding: 6px 12px;
+      position: relative;
+      text-decoration: none;
+      margin-bottom: 0.2em;
+}
+
+.pagination ul li .active a {
+    background-color: #222;
+    border-color: #222;
+    color: #fff;
+    cursor: default;
+    z-index: 2;
 }

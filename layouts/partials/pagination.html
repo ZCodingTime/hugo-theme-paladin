@@ -1,4 +1,6 @@
-{{ $page := $.Paginator }}
+{{ $page := $  }}
+
+{{ if .Site.Params.paginateOriginalStyle }}
 <div class="pagination">
     {{ with $page.Prev }}
     <a class="prev col-md-11 col-xs-6" href="{{ .URL }}">
@@ -14,3 +16,78 @@
     </a>
     {{ end }}
 </div>
+{{ else }}
+    <!-- Number of links either side of the current page -->
+    {{ $adjacent_links := 6 }}
+    {{ $max_links := (add (mul $adjacent_links 2) 1)}}
+    {{ $lower_limit := (add $adjacent_links 1)}}
+    {{ $upper_limit := (sub $page.TotalPages $adjacent_links)}}
+
+    {{ if and (gt $page.TotalPages 1) (le $page.TotalPages $max_links)}}
+    <div class="pagination">
+        <ul>
+            {{ range $page.Pagers }}
+            <li {{ if eq . $page }} class="active" {{ end }}>
+                <a href="{{ .URL }}">{{ .PageNumber }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ else if gt $page.TotalPages $max_links }}
+    <div class="pagination">
+        <ul>
+            {{ if ne $page.PageNumber 1 }}
+            <li>
+                <a href="{{ $page.First.URL }}" class="iconfont icon-jiantou_xiangzuoliangci"></a>
+            </li>
+            {{ end }}
+
+            {{ if $page.HasPrev }}
+            <li>
+                <a href="{{ $page.Prev.URL }}" class="iconfont icon-jiantou_shangyiye"></a>
+            </li>
+            {{ end }}
+
+            {{ range $page.Pagers }}
+                {{ $.Scratch.Set "page_number_flag" false}}
+                {{ if gt $page.TotalPages $max_links }}
+                    {{ if le $page.PageNumber $lower_limit}}
+                        {{ if le .PageNumber $max_links }}
+                            {{ $.Scratch.Set "page_number_flag" true }}
+                        {{ end }}
+                    {{ else if ge $page.PageNumber $upper_limit}}
+                        {{ if gt .PageNumber (sub $page.TotalPages $max_links) }}
+                            {{ $.Scratch.Set "page_number_flag" true }}
+                        {{ end }}
+                    {{ else }}
+                        {{ if and (ge .PageNumber (sub $page.PageNumber $adjacent_links)) (le .PageNumber (add $page.PageNumber $adjacent_links))}}}
+                            {{ $.Scratch.Set "page_number_flag" true }}
+                        {{ end }}
+                    {{ end }}
+                {{ else }}
+                    {{ $.Scratch.Set "page_number_flag" true}}
+                {{ end }}
+
+                {{ if eq ($.Scratch.Get "page_number_flag") true}}
+                <li {{ if eq . $page }} class="active" {{ end }}>
+                    <a href="{{ .URL }}">{{ .PageNumber }}</a>
+                </li>
+                {{ end }}
+            {{ end }}
+            {{ if $page.HasNext }}
+            <li>
+                <a href="{{ $page.Next.URL }}" class="iconfont icon-jiantou_xiayiye"></a>
+            </li>
+            {{ end }}
+
+            {{ if ne $page.PageNumber $page.TotalPages }}
+            <li>
+                <a href="{{ $page.Last.URL }}" class="iconfont icon-jiantou_xiangyouliangci"></a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ end }}
+
+
+{{ end }}

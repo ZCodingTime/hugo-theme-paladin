@@ -841,14 +841,14 @@ a.article-more:hover {
 /*  PAGINATION (PAGE/POST)
 /*-----------------------------------------------------------------------------------*/
 
-.paginator, .post-nav {
+ .post-nav {
   width: 52px;
   height: 72%;
   margin: 14% auto;
   overflow: hidden;
 }
 
-.paginator a, .post-nav a {
+  .post-nav a {
   font-family: ubuntu,"webfont" !important;
   width: 22px;
   color: #656565;
@@ -861,7 +861,7 @@ a.article-more:hover {
   text-overflow: ellipsis;
 }
 
-.paginator a:hover, .post-nav a:hover {
+ .post-nav a:hover {
   text-decoration: none;
   color: #000;
 }
