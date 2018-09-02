@@ -515,6 +515,7 @@ h1.prince-log a {
 
 .post-entry p {
   margin-bottom: 20px;
+  font-weight: normal;
   animation: 3s infinite alternate slideIn;
 }
 
@@ -1226,46 +1227,4 @@ h3.aside-title {
 /* about me */
 .about-me {
   background-size: contain;
-}
-
-/* pagination */
-.pagination {
-  margin: 2em 0;
-  text-align: center;
-}
-
-.pagination ul {
-  display: inline-block;
-  list-style-type: disc;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  -webkit-padding-start: 40px;
-}
-
-.pagination ul li{
-	display: inline-block;
-}
-
-.pagination ul li a{
-  background-color: #fff;
-      margin-left: .1em;
-      margin-right: .1em;
-      border: 1px solid #222;
-      color: #222;
-      float: left;
-      line-height: 1.42857143;
-      padding: 6px 12px;
-      position: relative;
-      text-decoration: none;
-      margin-bottom: 0.2em;
-}
-
-.pagination ul li .active a {
-    background-color: #222;
-    border-color: #222;
-    color: #fff;
-    cursor: default;
-    z-index: 2;
 }

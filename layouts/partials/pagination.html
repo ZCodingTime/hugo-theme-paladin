@@ -1,4 +1,4 @@
-{{ $page := $  }}
+{{ $page := $.Paginator  }}
 
 {{ if .Site.Params.paginateOriginalStyle }}
 <div class="pagination">
@@ -24,27 +24,25 @@
     {{ $upper_limit := (sub $page.TotalPages $adjacent_links)}}
 
     {{ if and (gt $page.TotalPages 1) (le $page.TotalPages $max_links)}}
-    <div class="pagination">
-        <ul>
+    <div class="pagination-container">
+        <ul class="pagination justify-content-center">
             {{ range $page.Pagers }}
-            <li {{ if eq . $page }} class="active" {{ end }}>
-                <a href="{{ .URL }}">{{ .PageNumber }}</a>
+            <li class="page-item{{ if eq . $page }} active {{ end }}">
+                <a href="{{ .URL }}" class="page-link">{{ .PageNumber }}</a>
             </li>
             {{ end }}
         </ul>
     </div>
     {{ else if gt $page.TotalPages $max_links }}
-    <div class="pagination">
-        <ul>
-            {{ if ne $page.PageNumber 1 }}
-            <li>
-                <a href="{{ $page.First.URL }}" class="iconfont icon-jiantou_xiangzuoliangci"></a>
+    <div class="pagination-container">
+        <ul class="pagination justify-content-center">
+            <li class="page-item {{if eq 1 $page.PageNumber}}disabled{{end}}">
+                <a href="{{ $page.First.URL }}" class="page-link iconfont icon-jiantou_xiangzuoliangci"></a>
             </li>
-            {{ end }}
 
             {{ if $page.HasPrev }}
-            <li>
-                <a href="{{ $page.Prev.URL }}" class="iconfont icon-jiantou_shangyiye"></a>
+            <li class="page-item">
+                <a href="{{ $page.Prev.URL }}" class="page-link iconfont icon-jiantou_shangyiye"></a>
             </li>
             {{ end }}
 
@@ -60,7 +58,7 @@
                             {{ $.Scratch.Set "page_number_flag" true }}
                         {{ end }}
                     {{ else }}
-                        {{ if and (ge .PageNumber (sub $page.PageNumber $adjacent_links)) (le .PageNumber (add $page.PageNumber $adjacent_links))}}}
+                        {{ if and (ge .PageNumber (sub $page.PageNumber $adjacent_links)) (le .PageNumber (add $page.PageNumber $adjacent_links))}}
                             {{ $.Scratch.Set "page_number_flag" true }}
                         {{ end }}
                     {{ end }}
@@ -69,22 +67,20 @@
                 {{ end }}
 
                 {{ if eq ($.Scratch.Get "page_number_flag") true}}
-                <li {{ if eq . $page }} class="active" {{ end }}>
-                    <a href="{{ .URL }}">{{ .PageNumber }}</a>
+                <li class="page-item{{ if eq . $page }} active{{ end }}" >
+                    <a href="{{ .URL }}" class="page-link">{{ .PageNumber }}</a>
                 </li>
                 {{ end }}
             {{ end }}
             {{ if $page.HasNext }}
-            <li>
-                <a href="{{ $page.Next.URL }}" class="iconfont icon-jiantou_xiayiye"></a>
+            <li class="page-item">
+                <a href="{{ $page.Next.URL }}" class="page-link iconfont icon-jiantou_xiayiye"></a>
             </li>
             {{ end }}
 
-            {{ if ne $page.PageNumber $page.TotalPages }}
-            <li>
-                <a href="{{ $page.Last.URL }}" class="iconfont icon-jiantou_xiangyouliangci"></a>
+            <li class="page-item{{ if eq $page.PageNumber $page.TotalPages }} disabled{{end}}">
+                <a href="{{ $page.Last.URL }}" class="page-link iconfont icon-jiantou_xiangyouliangci"></a>
             </li>
-            {{ end }}
         </ul>
     </div>
     {{ end }}
