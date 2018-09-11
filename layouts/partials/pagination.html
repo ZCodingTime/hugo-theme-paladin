@@ -18,7 +18,9 @@
 </div>
 {{ else }}
     <!-- Number of links either side of the current page -->
-    {{ $adjacent_links := 6 }}
+
+    {{ $adjacent_links := 3 }}
+    
     {{ $max_links := (add (mul $adjacent_links 2) 1)}}
     {{ $lower_limit := (add $adjacent_links 1)}}
     {{ $upper_limit := (sub $page.TotalPages $adjacent_links)}}
@@ -84,6 +86,4 @@
         </ul>
     </div>
     {{ end }}
-
-
 {{ end }}

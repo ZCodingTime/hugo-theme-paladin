@@ -250,8 +250,8 @@ samp {
 code {
   padding: 2px 4px;
   word-wrap: break-word;
-  color: #4d4d4c;
-  background: #FAFAFA;
+  background: #4d4d4c;
+  color: #FAFAFA;
   border-radius: 3px;
   font-size: 1.15rem;
 }
