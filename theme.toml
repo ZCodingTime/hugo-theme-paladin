@@ -19,3 +19,13 @@ min_version = "0.41"
   name = ""
   homepage = ""
   repo = ""
+
+[params.valine]
+    enable = true
+    appId = '0CS13cNBUV5BJj7PQWupnVWq-gzGzoHsz'
+    appKey = 'xsz3vAzEbda56D3RK5aomNSW'
+    notify = false
+    verify = false
+    avatar = 'hide'
+    placeholder = '啥也不想说'
+    visitor = true

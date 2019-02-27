@@ -1,5 +1,5 @@
 <div class="articles">
-    {{ $paginator := .Paginate (where .Pages "Type" "post") }}
+    {{ $paginator := .Paginate (where .Pages "Type" "posts") }}
     {{ range $paginator.Pages }}
         <article class="post-block">
             <h2 class="post-title">

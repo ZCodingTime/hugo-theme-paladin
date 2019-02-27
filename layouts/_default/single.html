@@ -13,7 +13,14 @@
             {{ partial "footer.html" . }}
         {{ end }}
     </main>
+
+    {{ if .Site.Params.Valine.enable }}
+    <div class="paladin-comment">
+      {{ partial "comment.html" . }}
+    </div>
+    {{ end }}
 </div>
+
 {{ if ne .Params.vertical true }}
     {{ partial "footer.html" . }}
 {{ end }}

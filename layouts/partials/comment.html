@@ -1,0 +1,16 @@
+<div id ="vcomments"></div>
+<script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://unpkg.com/valine/dist/Valine.min.js'></script>
+
+<script type="text/javascript">
+ new Valine({
+   el: '#vcomments',
+   appId: '{{ .Site.Params.Valine.appId }}',
+   appKey: '{{ .Site.Params.Valine.appKey }}',
+   notify: '{{ .Site.Params.Valine.notify }}',
+   verify: '{{ .Site.Params.Valine.verify }}',
+   avatar: '{{ .Site.Params.Valine.avatar }}',
+   placeholder: '{{ .Site.Params.Valine.placeholder }}',
+   visitor: '{{ .Site.Params.Valine.visitor }}'
+ });
+</script>
