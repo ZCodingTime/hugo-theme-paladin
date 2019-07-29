@@ -6,6 +6,8 @@
 
 主要使用了[bootstrap4](https://getbootstrap.com)，其中的一些内容来源自[阿里巴巴的矢量库](http://www.iconfont.cn)，用起来方便快捷。
 
+增加了 valine 的使用方案，但是因为需要注册，默认不开启。
+
 ## 截图
 
 ![](./images/sn01.png)
